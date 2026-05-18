@@ -1,0 +1,27 @@
+{
+  "__default": {
+    "clu_permitted": 7,
+    "far_subject": 1.5,
+    "far_benchmark": 1.5
+  },
+  "Ayodhya": {
+    "clu_permitted": 7,
+    "far_subject": 2.0,
+    "far_benchmark": 1.76
+  },
+  "Lucknow": {
+    "clu_permitted": 7,
+    "far_subject": 2.5,
+    "far_benchmark": 2.1
+  },
+  "Noida": {
+    "clu_permitted": 7,
+    "far_subject": 3.0,
+    "far_benchmark": 2.5
+  },
+  "Varanasi": {
+    "clu_permitted": 6,
+    "far_subject": 2.0,
+    "far_benchmark": 1.8
+  }
+}

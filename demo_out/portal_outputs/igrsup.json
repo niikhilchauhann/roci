@@ -1,0 +1,13 @@
+{
+  "data": {},
+  "note": "It looks like you are using Playwright Sync API inside the asyncio loop.\nPlease use the Async API instead.",
+  "portal": "igrsup",
+  "query": {
+    "district": "Ayodhya",
+    "gatta_number": "374/1-A",
+    "lat": 26.7954,
+    "lng": 82.1942
+  },
+  "status": "ERROR",
+  "url": "https://igrsup.gov.in"
+}

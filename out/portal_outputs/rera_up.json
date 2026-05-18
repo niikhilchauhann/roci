@@ -1,0 +1,13 @@
+{
+  "data": {},
+  "note": "Page.goto: net::ERR_NAME_NOT_RESOLVED at https://rera.up.gov.in/\nCall log:\n  - navigating to \"https://rera.up.gov.in/\", waiting until \"domcontentloaded\"\n",
+  "portal": "rera_up",
+  "query": {
+    "district": "Ayodhya",
+    "gatta_number": "374/1-A",
+    "lat": 26.7954,
+    "lng": 82.1942
+  },
+  "status": "ERROR",
+  "url": "https://rera.up.gov.in"
+}

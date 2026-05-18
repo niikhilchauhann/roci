@@ -1,0 +1,15 @@
+{
+  "registered": 0.5,
+  "application accepted": 0.5,
+  "not launched": 0.5,
+  "launched": 0.7,
+  "under development": 0.7,
+  "under construction": 1.0,
+  "construction in progress": 1.0,
+  "completion certificate": 0.6,
+  "oc obtained": 0.6,
+  "revoked": -0.3,
+  "lapsed": -0.3,
+  "cancelled": -0.3,
+  "withdrawn": -0.3
+}

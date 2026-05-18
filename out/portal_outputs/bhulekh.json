@@ -1,0 +1,20 @@
+{
+  "data": {
+    "body_length": 1609,
+    "gatta_number": "374/1-A",
+    "html_length": 62583,
+    "key_values": {},
+    "mutation_status": "UNKNOWN",
+    "table_records": []
+  },
+  "note": "",
+  "portal": "bhulekh",
+  "query": {
+    "district": "Ayodhya",
+    "gatta_number": "374/1-A",
+    "lat": 26.7954,
+    "lng": 82.1942
+  },
+  "status": "EMPTY_PAGE",
+  "url": "https://upbhulekh.gov.in"
+}

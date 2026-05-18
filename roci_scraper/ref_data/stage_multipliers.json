@@ -1,0 +1,20 @@
+{
+  "published": 0.4,
+  "open": 0.4,
+  "tender floated": 0.4,
+  "pre-bid": 0.55,
+  "technical evaluation": 0.55,
+  "loa": 0.7,
+  "letter of award": 0.7,
+  "award": 0.7,
+  "work order": 1.0,
+  "agreement signed": 1.0,
+  "under execution": 0.9,
+  "under construction": 0.9,
+  "completed": 0.3,
+  "closure": 0.3,
+  "handed over": 0.3,
+  "cancelled": 0.0,
+  "withdrawn": 0.0,
+  "scrapped": 0.0
+}

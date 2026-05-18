@@ -1,0 +1,24 @@
+{
+  "data": {
+    "body_length": 2569,
+    "html_length": 93932,
+    "key_values": {
+      "अंतिम अद्यतन": "सोमवार मई 18, 2026, 03:09:54 pm IST",
+      "हेल्प लाइन न०": "1800 180 1476 Whatsapp No. 9235930505"
+    },
+    "n_current": 1,
+    "n_previous": 1,
+    "source_hint": "landing_page_or_followed_link",
+    "table_records": []
+  },
+  "note": "",
+  "portal": "igrsup",
+  "query": {
+    "district": "Ayodhya",
+    "gatta_number": "374/1-A",
+    "lat": 26.7954,
+    "lng": 82.1942
+  },
+  "status": "OK",
+  "url": "https://igrsup.gov.in"
+}

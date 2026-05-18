@@ -1,0 +1,51 @@
+{
+  "components": {
+    "base_score": 0.5138,
+    "c_adj": 1.0,
+    "c_score": 0.988,
+    "clu_base": 0.5,
+    "clu_t": 0.5,
+    "far_h": 1.023,
+    "is_t": 0.3981,
+    "r_clu_pending": 0,
+    "r_clu_risk": 0,
+    "r_mutation": -4,
+    "r_total": -4,
+    "r_zoning": 0,
+    "rera_d": 0.0,
+    "roci_post_conf": 52.55,
+    "roci_pre": 52.55,
+    "rv_t": 0.8254,
+    "velocity_z": 1.553
+  },
+  "inputs_echo": {
+    "clu_current": 3,
+    "clu_permitted": 7,
+    "mutation_status": "PENDING",
+    "weights": [
+      0.38,
+      0.32,
+      0.15,
+      0.15
+    ],
+    "zone_type": "urban_expansion"
+  },
+  "roci_final": 48.55,
+  "scrape_metadata": {
+    "area_sqft": 174240.0,
+    "gatta_number": "374/1-A",
+    "lat": 26.7954,
+    "lng": 82.1942,
+    "portals_failed": [
+      "igrsup",
+      "bhunaksha",
+      "bhulekh",
+      "cppp_gem",
+      "rera_up"
+    ],
+    "portals_ok": [],
+    "scraped_at": "2026-05-16T19:22:31.735623Z"
+  },
+  "status": "OK",
+  "zone_label": "Zone 3 — Watch"
+}

@@ -1,0 +1,14 @@
+{
+  "Ayodhya": {
+    "district": "Ayodhya",
+    "sro_id": "AYD-01",
+    "lat": 26.7954,
+    "lng": 82.1942
+  },
+  "__default__": {
+    "district": "Ayodhya",
+    "sro_id": "AYD-01",
+    "lat": 26.7954,
+    "lng": 82.1942
+  }
+}
