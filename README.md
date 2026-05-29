@@ -67,9 +67,9 @@ All variables have defaults except the three marked required:
 | `APP_ENV` | `development` | Environment name |
 | `LOG_LEVEL` | `INFO` | Logging level |
 | `ALLOWED_ORIGINS` | `["http://localhost:3000"]` | CORS origins (JSON array) |
-| `BHUNAKSHA_WFS_URL` | — | Bhunaksha WFS endpoint |
-| `BHUNAKSHA_LAYER_NAME` | — | Bhunaksha layer name |
-| `BHULEKH_BASE_URL` | — | Bhulekh base URL |
+| `BHUNAKSHA_WFS_URL` | "https://upbhunaksha.gov.in/bhunakshaserver" | Bhunaksha WFS endpoint |
+| `BHUNAKSHA_LAYER_NAME` | "up:land_parcels" | Bhunaksha layer name |
+| `BHULEKH_BASE_URL` | "https://upbhulekh.gov.in" | Bhulekh base URL |
 | `ROCI_OUT_DIR` | `./data` | Directory for pipeline outputs |
 
 ---
