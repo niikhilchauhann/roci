@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-ink text-white;
+  background-image:
+    radial-gradient(circle at top left, rgba(92, 188, 255, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(48, 196, 141, 0.12), transparent 24%),
+    linear-gradient(180deg, #07101b 0%, #091424 100%);
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: #0a1525;
+}

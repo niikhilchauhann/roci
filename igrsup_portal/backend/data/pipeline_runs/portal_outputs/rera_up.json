@@ -1,0 +1,79 @@
+{
+  "data": {
+    "rera_projects": [
+      {
+        "cert_url": "https://uprera.azurewebsites.net/ViewDocument?Param=498561719163.pdf",
+        "detail": {
+          "District/State": "Ayodhya/Uttar Pradesh",
+          "Proposed Completion Date": "06-08-2029",
+          "Tehsil": "Sadar(Faizabad)",
+          "Village/Locality/Sector": "Sarethi"
+        },
+        "distance_km": 3.0,
+        "name": "Aero Vista City",
+        "project_type": "Residential",
+        "promoter": "SIVANATRAJ SERVICES INDIA PRIVATE LIMITED",
+        "proposed_completion": "06-08-2029",
+        "reg_date": "1/10/2025",
+        "reg_number": "UPRERAPRJ15615",
+        "scale_weight": 0.8,
+        "stage_multiplier": 0.5,
+        "status_text": "registered",
+        "tehsil": "Sadar(Faizabad)",
+        "units": null,
+        "village": "Sarethi"
+      },
+      {
+        "cert_url": "https://uprera.azurewebsites.net/ViewDocument?Param=669621058022.pdf",
+        "detail": {
+          "Proposed Completion Date": "30-09-2027"
+        },
+        "distance_km": 2.321,
+        "name": "The Sarayu 3",
+        "project_type": "Residential",
+        "promoter": "HOABL Realtech Private Limited",
+        "proposed_completion": "30-09-2027",
+        "reg_date": "9/07/2024",
+        "reg_number": "UPRERAPRJ77448",
+        "scale_weight": 0.8,
+        "stage_multiplier": 0.5,
+        "status_text": "registered",
+        "tehsil": "",
+        "units": null,
+        "village": ""
+      },
+      {
+        "cert_url": "https://uprera.azurewebsites.net/ViewDocument?Param=758541350199.pdf",
+        "detail": {
+          "District/State": "Ayodhya/Uttar Pradesh",
+          "Proposed Completion Date": "23-01-2030",
+          "Tehsil": "Sadar(Faizabad)",
+          "Village/Locality/Sector": "Kudha Keshavpur, 14-Kosi Parikrama Marg, Darshan Nagar"
+        },
+        "distance_km": 3.0,
+        "name": "VEDA",
+        "project_type": "Commercial",
+        "promoter": "Aurika Developers LLP, ADVIKA BUILDTECH LLP",
+        "proposed_completion": "23-01-2030",
+        "reg_date": "5/03/2025",
+        "reg_number": "UPRERAPRJ36739",
+        "scale_weight": 0.8,
+        "stage_multiplier": 0.5,
+        "status_text": "registered",
+        "tehsil": "Sadar(Faizabad)",
+        "units": null,
+        "village": "Kudha Keshavpur, 14-Kosi Parikrama Marg, Darshan Nagar"
+      }
+    ],
+    "total_district_projects": 9
+  },
+  "note": "",
+  "portal": "rera_up",
+  "query": {
+    "district": "Ayodhya",
+    "lat": 26.7783,
+    "lng": 82.2029
+  },
+  "status": "OK",
+  "url": "https://uprera.azurewebsites.net/View_projects.aspx"
+}

@@ -1,0 +1,192 @@
+{
+  "status": "OK",
+  "roci_final": 59.0,
+  "zone_label": "Zone 5",
+  "parcel": {
+    "gatta_number": "AYO-26799-82204",
+    "village": "Ayodhya Demo Village",
+    "tehsil": "Sadar",
+    "district": "Ayodhya",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            82.20050525376395,
+            26.802075372694873
+          ],
+          [
+            82.20190525376394,
+            26.802075372694873
+          ],
+          [
+            82.20190525376394,
+            26.80347537269487
+          ],
+          [
+            82.20050525376395,
+            26.80347537269487
+          ],
+          [
+            82.20050525376395,
+            26.802075372694873
+          ]
+        ]
+      ]
+    },
+    "source": "bhunaksha_fallback",
+    "source_confidence": 0.58
+  },
+  "bhulekh": {
+    "gatta_number": "AYO-26799-82204",
+    "mutation_status": "CAPTCHA_REQUIRED",
+    "bhoomi_prakar": "कृषि",
+    "owner_name": null,
+    "village": "Ayodhya Demo Village",
+    "tehsil": "Sadar",
+    "source_language": "hi",
+    "confidence": 0.45
+  },
+  "components": {
+    "clu_score": {
+      "name": "CLU Score",
+      "score": 58.0,
+      "weight": 0.3,
+      "reason": "Land-use remains agriculture-led with moderate conversion upside."
+    },
+    "registry_velocity": {
+      "name": "Registry Velocity",
+      "score": 61.0,
+      "weight": 0.2,
+      "reason": "Placeholder registry momentum for Ayodhya MVP pending sub-registrar ingestion."
+    },
+    "infra_score": {
+      "name": "Infrastructure Access",
+      "score": 81.2,
+      "weight": 0.2,
+      "reason": "Top signal is a transport project at 0.57 km. Classification and distance bands were blended across CPPP and GeM sources."
+    },
+    "risk_score": {
+      "name": "Risk Score",
+      "score": 40.0,
+      "weight": 0.2,
+      "reason": "Mutation quality and parcel confidence drive current legal-operational risk."
+    },
+    "confidence_score": {
+      "name": "Confidence Score",
+      "score": 51.5,
+      "weight": 0.1,
+      "reason": "Blended confidence from Bhunaksha parcel match and Bhulekh extraction quality."
+    }
+  },
+  "scrape_metadata": {
+    "bhunaksha": {
+      "source": "bhunaksha_fallback",
+      "endpoint": "https://example-bhunaksha.local/geoserver/ows",
+      "layer_name": "ayodhya:land_parcels",
+      "request_params": {
+        "service": "WFS",
+        "version": "1.0.0",
+        "request": "GetFeature",
+        "typeName": "ayodhya:land_parcels",
+        "outputFormat": "application/json",
+        "srsName": "EPSG:4326",
+        "bbox": "82.19920525376395,26.800775372694872,82.20320525376394,26.80477537269487,EPSG:4326"
+      },
+      "fallback_used": true,
+      "error": "RetryError[<Future at 0x106361690 state=finished raised ConnectError>]"
+    },
+    "bhulekh": {
+      "source": "bhulekh_placeholder",
+      "base_url": "https://example-bhulekh.local",
+      "captcha_required": true,
+      "captcha_mode": "human_or_solver_required",
+      "portal_selectors": {
+        "captcha_input": {
+          "by": "css selector",
+          "value": "input[name='captcha'], input[id*='captcha']"
+        },
+        "submit_button": {
+          "by": "css selector",
+          "value": "input[type='submit'], button[type='submit']"
+        },
+        "record_table": {
+          "by": "css selector",
+          "value": "table"
+        }
+      }
+    },
+    "infrastructure": {
+      "score": 81.2,
+      "project_count": 4,
+      "dominant_classification": "utilities",
+      "projects": [
+        {
+          "source": "cppp",
+          "project_id": "CPPP-AYO-001",
+          "title": "Ayodhya Riverfront Mobility Corridor",
+          "authority": "Ayodhya Development Authority",
+          "category": "Urban Transport",
+          "classification": "transport",
+          "status": "Under Implementation",
+          "coordinates": {
+            "lat": 26.8068,
+            "lng": 82.1977
+          },
+          "distance_km": 0.57,
+          "distance_band": "adjacent",
+          "influence_score": 92.0
+        },
+        {
+          "source": "gem",
+          "project_id": "GEM-AYO-102",
+          "title": "Tourism Wayfinding and Heritage Plaza Signage",
+          "authority": "Tourism Department",
+          "category": "Urban Public Realm",
+          "classification": "economic",
+          "status": "Awarded",
+          "coordinates": {
+            "lat": 26.8125,
+            "lng": 82.2057
+          },
+          "distance_km": 1.17,
+          "distance_band": "near",
+          "influence_score": 69.6
+        },
+        {
+          "source": "gem",
+          "project_id": "GEM-AYO-101",
+          "title": "Solar Street Lighting for Ayodhya Growth Corridor",
+          "authority": "Ayodhya Municipal Corporation",
+          "category": "Electrical Works",
+          "classification": "utilities",
+          "status": "Published",
+          "coordinates": {
+            "lat": 26.7911,
+            "lng": 82.2188
+          },
+          "distance_km": 2.18,
+          "distance_band": "near",
+          "influence_score": 71.3
+        },
+        {
+          "source": "cppp",
+          "project_id": "CPPP-AYO-002",
+          "title": "Integrated Water Supply Upgrade",
+          "authority": "Jal Nigam",
+          "category": "Water Utility",
+          "classification": "utilities",
+          "status": "Bid Stage",
+          "coordinates": {
+            "lat": 26.7842,
+            "lng": 82.2114
+          },
+          "distance_km": 2.29,
+          "distance_band": "near",
+          "influence_score": 69.5
+        }
+      ],
+      "methodology": "Weighted blend of project classification priority and parcel-to-project geodesic distance across CPPP and GeM sources."
+    }
+  }
+}

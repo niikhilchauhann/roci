@@ -5,7 +5,11 @@ from pathlib import Path
 from typing import Any, Iterable, Optional
 
 from loguru import logger
-from playwright.sync_api import sync_playwright
+
+try:
+    from playwright.sync_api import sync_playwright
+except ImportError:
+    sync_playwright = None  # type: ignore[assignment]
 
 @dataclass
 class PageSnapshot:

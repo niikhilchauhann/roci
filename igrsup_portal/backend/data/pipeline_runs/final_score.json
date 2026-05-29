@@ -1,0 +1,82 @@
+{
+  "components": {
+    "base_score": 0.5753,
+    "c_adj": 1.0,
+    "c_score": 0.843,
+    "clu_base": 0.625,
+    "clu_t": 0.625,
+    "far_h": 1.136,
+    "is_t": 0.1867,
+    "r_clu_pending": 0,
+    "r_clu_risk": 0,
+    "r_mutation": 0,
+    "r_total": 0,
+    "r_zoning": 0,
+    "rera_d": 0.3453,
+    "roci_post_conf": 65.38,
+    "roci_pre": 65.38,
+    "rv_t": 0.8063,
+    "velocity_z": 1.426
+  },
+  "inputs_echo": {
+    "clu_current": 2,
+    "clu_permitted": 7,
+    "mutation_status": "CLEAR",
+    "weights": [
+      0.38,
+      0.32,
+      0.15,
+      0.15
+    ],
+    "zone_type": "urban_expansion"
+  },
+  "rera_projects": [
+    {
+      "distance_km": 3.0,
+      "name": "Aero Vista City",
+      "promoter": "",
+      "reg_number": "UPRERAPRJ15615",
+      "scale_weight": 0.8,
+      "stage_multiplier": 0.5,
+      "status_text": ""
+    },
+    {
+      "distance_km": 2.321,
+      "name": "The Sarayu 3",
+      "promoter": "",
+      "reg_number": "UPRERAPRJ77448",
+      "scale_weight": 0.8,
+      "stage_multiplier": 0.5,
+      "status_text": ""
+    },
+    {
+      "distance_km": 3.0,
+      "name": "VEDA",
+      "promoter": "",
+      "reg_number": "UPRERAPRJ36739",
+      "scale_weight": 0.8,
+      "stage_multiplier": 0.5,
+      "status_text": ""
+    }
+  ],
+  "risk_flags": [],
+  "roci_final": 65.38,
+  "scrape_metadata": {
+    "area_sqft": 8000.0,
+    "gatta_number": "158",
+    "lat": 26.7783,
+    "lng": 82.2029,
+    "portals_failed": [
+      "bhunaksha",
+      "bhulekh"
+    ],
+    "portals_ok": [
+      "igrsup",
+      "cppp_gem",
+      "rera_up"
+    ],
+    "scraped_at": "2026-05-29T14:05:52.924154Z"
+  },
+  "status": "OK",
+  "zone_label": "Zone 4 — Buy with Verification"
+}

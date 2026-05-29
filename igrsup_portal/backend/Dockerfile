@@ -1,0 +1,41 @@
+# Build context must be the roci repo root (set via docker-compose)
+FROM python:3.12-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libgdal-dev \
+    gdal-bin \
+    libgeos-dev \
+    libproj-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    wget curl \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /backend
+
+# Install Python deps first (cached layer)
+COPY "igrsup_portal/backend/requirements.txt" requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install Playwright browser
+RUN playwright install chromium --with-deps
+
+# Install roci_scraper package
+COPY roci_scraper /roci_pkg/roci_scraper
+COPY pyproject.toml /roci_pkg/pyproject.toml
+RUN pip install --no-cache-dir -e /roci_pkg
+
+# Bake the IGRSUP SRO cache into the image
+COPY out/igrsup_sro_cache.json /roci_out/igrsup_sro_cache.json
+
+# Copy backend app
+COPY "igrsup_portal/backend/app" ./app
+
+ENV ROCI_OUT_DIR=/roci_out
+ENV BHUNAKSHA_WFS_URL=https://upbhunaksha.gov.in/bhunakshaserver/ows
+ENV BHUNAKSHA_LAYER_NAME=ayodhya:land_parcels
+ENV BHULEKH_BASE_URL=https://upbhulekh.gov.in
+
+EXPOSE 8000
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

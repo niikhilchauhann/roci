@@ -1,0 +1,118 @@
+{
+  "__meta": "Circle rates in INR crore per acre. Derived from IGRSUP getUploadedRateList PDFs (RateList_<sro>_<date>.pdf). Rates are avg of gramin (rural) category localities × 4047 sqm/acre. Raw data in ref_data/circle_rates_sadar_raw.json. Update when state revises Mulyankan Soochi.",
+  "__default": {
+    "circle_rate_crore_per_acre": null,
+    "note": "No verified rate available — IGRSUP PDF not yet fetched for this tehsil"
+  },
+  "Ayodhya": {
+    "__tehsil_default": {
+      "circle_rate_crore_per_acre": null,
+      "note": "Use tehsil-specific rate; only Sadar verified so far"
+    },
+    "Sadar": {
+      "circle_rate_crore_per_acre": 0.92,
+      "circle_rate_inr_per_sqm_gramin": 2262,
+      "circle_rate_inr_per_sqm_urban": 12094,
+      "source": "IGRSUP RateList_120_07-06-2025.pdf (SRO Sadar, 554 localities, gramin avg)",
+      "effective_from": "2025-06-07",
+      "raw_data_file": "ref_data/circle_rates_sadar_raw.json"
+    },
+    "Milkipur": {
+      "circle_rate_crore_per_acre": 1.95,
+      "circle_rate_inr_per_sqm_gramin": 4814,
+      "circle_rate_inr_per_sqm_arddh_nagri": 6000,
+      "source": "IGRSUP RateList_122_07-06-2025.pdf (SRO Milkipur, 280 localities, gramin avg)",
+      "effective_from": "2025-06-07",
+      "raw_data_file": "ref_data/circle_rates_milkipur_raw.json"
+    },
+    "Sohawal": {
+      "circle_rate_crore_per_acre": 1.24,
+      "circle_rate_inr_per_sqm_gramin": 3064,
+      "circle_rate_inr_per_sqm_arddh_nagri": 4339,
+      "source": "IGRSUP RateList_123_07-06-2025.pdf (SRO Sohawal, 159 localities, gramin avg)",
+      "effective_from": "2025-06-07",
+      "raw_data_file": "ref_data/circle_rates_sohawal_raw.json"
+    },
+    "Bikapur": {
+      "circle_rate_crore_per_acre": 1.21,
+      "circle_rate_inr_per_sqm_gramin": 3000,
+      "circle_rate_inr_per_sqm_gramin_vishesh": 5436,
+      "circle_rate_inr_per_sqm_arddh_nagri": 7727,
+      "source": "IGRSUP RateList_121_07-06-2025.pdf (SRO Bikapur, 351 localities, gramin avg)",
+      "effective_from": "2025-06-07",
+      "raw_data_file": "ref_data/circle_rates_bikapur_raw.json"
+    },
+    "Rudauli": {
+      "circle_rate_crore_per_acre": 1.42,
+      "circle_rate_inr_per_sqm_gramin": 3503,
+      "circle_rate_inr_per_sqm_arddh_nagri": 4507,
+      "circle_rate_inr_per_sqm_vikasshil": 5237,
+      "source": "IGRSUP RateList_074_07-06-2025.pdf (SRO Rudauli, 286 localities, gramin avg)",
+      "effective_from": "2025-06-07",
+      "raw_data_file": "ref_data/circle_rates_rudauli_raw.json"
+    }
+  },
+  "Lucknow": {
+    "__tehsil_default": {
+      "circle_rate_crore_per_acre": 1.80,
+      "source": "IGRSUP Mulyankan Soochi 2024",
+      "effective_from": "2024-04-01"
+    },
+    "Sadar": {
+      "circle_rate_crore_per_acre": 2.50,
+      "source": "IGRSUP Mulyankan Soochi 2024",
+      "effective_from": "2024-04-01"
+    },
+    "Mohanlalganj": {
+      "circle_rate_crore_per_acre": 1.20,
+      "source": "IGRSUP Mulyankan Soochi 2024",
+      "effective_from": "2024-04-01"
+    },
+    "Malihabad": {
+      "circle_rate_crore_per_acre": 1.10,
+      "source": "IGRSUP Mulyankan Soochi 2024",
+      "effective_from": "2024-04-01"
+    }
+  },
+  "Varanasi": {
+    "__tehsil_default": {
+      "circle_rate_crore_per_acre": 0.90,
+      "source": "IGRSUP Mulyankan Soochi 2024",
+      "effective_from": "2024-04-01"
+    },
+    "Sadar": {
+      "circle_rate_crore_per_acre": 1.40,
+      "source": "IGRSUP Mulyankan Soochi 2024",
+      "effective_from": "2024-04-01"
+    },
+    "Pindra": {
+      "circle_rate_crore_per_acre": 0.55,
+      "source": "IGRSUP Mulyankan Soochi 2024",
+      "effective_from": "2024-04-01"
+    }
+  },
+  "Agra": {
+    "__tehsil_default": {
+      "circle_rate_crore_per_acre": 0.80,
+      "source": "IGRSUP Mulyankan Soochi 2024",
+      "effective_from": "2024-04-01"
+    },
+    "Sadar": {
+      "circle_rate_crore_per_acre": 1.50,
+      "source": "IGRSUP Mulyankan Soochi 2024",
+      "effective_from": "2024-04-01"
+    }
+  },
+  "Noida": {
+    "__tehsil_default": {
+      "circle_rate_crore_per_acre": 4.50,
+      "source": "IGRSUP Mulyankan Soochi 2024",
+      "effective_from": "2024-04-01"
+    },
+    "Dadri": {
+      "circle_rate_crore_per_acre": 3.20,
+      "source": "IGRSUP Mulyankan Soochi 2024",
+      "effective_from": "2024-04-01"
+    }
+  }
+}

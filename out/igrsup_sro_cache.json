@@ -1,0 +1,92 @@
+{
+  "__meta": {
+    "district": "Ayodhya",
+    "district_code": "177",
+    "generated_at": "2026-05-29T09:02:28Z",
+    "mu_district": 1595.8,
+    "sigma_district": 1066.64,
+    "note": "n_current/n_previous = deed counts in 90-day windows; p_*_median in INR/sqft"
+  },
+  "sros": {
+    "074": {
+      "sro_code": "074",
+      "sro_name": "Rudauli",
+      "n_current": 2022,
+      "n_previous": 2101,
+      "p_current_median": null,
+      "p_previous_median": null,
+      "deed_ref": null,
+      "circle_rate_crore_per_acre": 1.42,
+      "current_window_start": "2026-02-27",
+      "current_window_end": "2026-05-29",
+      "previous_window_start": "2025-11-29",
+      "previous_window_end": "2026-02-27",
+      "total_deed_rows": 58331,
+      "fetched_at": "2026-05-29T13:20:00Z"
+    },
+    "120": {
+      "sro_code": "120",
+      "sro_name": "Sadar",
+      "n_current": 3117,
+      "n_previous": 3379,
+      "p_current_median": 148.65,
+      "p_previous_median": null,
+      "deed_ref": null,
+      "circle_rate_crore_per_acre": 0.92,
+      "current_window_start": "2026-02-27",
+      "current_window_end": "2026-05-29",
+      "previous_window_start": "2025-11-29",
+      "previous_window_end": "2026-02-27",
+      "total_deed_rows": 107361,
+      "fetched_at": "2026-05-29T14:00:00Z"
+    },
+    "121": {
+      "sro_code": "121",
+      "sro_name": "Bikapur",
+      "n_current": 1643,
+      "n_previous": 2975,
+      "p_current_median": null,
+      "p_previous_median": null,
+      "deed_ref": null,
+      "circle_rate_crore_per_acre": 1.21,
+      "current_window_start": "2026-02-27",
+      "current_window_end": "2026-05-29",
+      "previous_window_start": "2025-11-29",
+      "previous_window_end": "2026-02-27",
+      "total_deed_rows": 49292,
+      "fetched_at": "2026-05-29T14:05:00Z"
+    },
+    "122": {
+      "sro_code": "122",
+      "sro_name": "Milkipur",
+      "n_current": 777,
+      "n_previous": 1304,
+      "p_current_median": null,
+      "p_previous_median": null,
+      "deed_ref": "2122",
+      "circle_rate_crore_per_acre": 1.95,
+      "current_window_start": "2026-02-28",
+      "current_window_end": "2026-05-29",
+      "previous_window_start": "2025-11-30",
+      "previous_window_end": "2026-02-28",
+      "total_deed_rows": 27073,
+      "fetched_at": "2026-05-29T09:02:28Z"
+    },
+    "123": {
+      "sro_code": "123",
+      "sro_name": "Sohawal",
+      "n_current": 420,
+      "n_previous": 434,
+      "p_current_median": null,
+      "p_previous_median": null,
+      "deed_ref": "2901",
+      "circle_rate_crore_per_acre": 1.24,
+      "current_window_start": "2026-02-28",
+      "current_window_end": "2026-05-29",
+      "previous_window_start": "2025-11-30",
+      "previous_window_end": "2026-02-28",
+      "total_deed_rows": 13523,
+      "fetched_at": "2026-05-29T09:02:28Z"
+    }
+  }
+}

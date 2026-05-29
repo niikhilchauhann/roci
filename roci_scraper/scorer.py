@@ -15,6 +15,7 @@ MUTATION_PENALTIES = {
     'CLEAR': 0,
     'PENDING': -4,
     'NOT_INIT': -8,
+    'TAX_DUES': 0,
     'DISPUTED': -12,
     'UNKNOWN': 0,
 }
@@ -104,10 +105,19 @@ def compute_roci(d: dict) -> dict:
 
     roci_final = max(0.0, roci_post_confidence + r_total)
 
+    risk_flags = []
+    if d.get('mutation_status') == 'TAX_DUES':
+        risk_flags.append('Land tax dues outstanding')
+    if d.get('mutation_status') == 'PENDING':
+        risk_flags.append('Mutation pending')
+    if d.get('mutation_status') == 'DISPUTED':
+        risk_flags.append('Title disputed')
+
     return {
         'status': 'OK',
         'roci_final': round(roci_final, 2),
         'zone_label': get_zone_label(roci_final),
+        'risk_flags': risk_flags,
         'components': {
             'clu_t': round(clu_t, 4),
             'rv_t': round(rv_t, 4),
@@ -134,4 +144,16 @@ def compute_roci(d: dict) -> dict:
             'clu_current': d.get('clu_current'),
             'clu_permitted': d.get('clu_permitted'),
         },
+        'rera_projects': [
+            {
+                'name': p.get('name', ''),
+                'reg_number': p.get('reg_number', ''),
+                'distance_km': p.get('distance_km'),
+                'scale_weight': p.get('scale_weight'),
+                'stage_multiplier': p.get('stage_multiplier'),
+                'status_text': p.get('status_text', ''),
+                'promoter': p.get('promoter', ''),
+            }
+            for p in d.get('rera_projects', [])
+        ],
     }

@@ -1,0 +1,54 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Node / Next.js
+node_modules/
+igrsup_portal/frontend/.next/
+igrsup_portal/frontend/out/
+
+# Docker
+*.tar
+
+# Output / debug artifacts
+out/debug_*
+out/portal_outputs/
+out/pipeline_runs/
+out/final_score.json
+out/igrsup.json
+out/rera_ayodhya.json
+
+# Keep the SRO cache (needed for pipeline)
+!out/igrsup_sro_cache.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Playwright browser binaries
+igrsup_portal/backend/node_modules/

@@ -50,7 +50,7 @@ def merge_fixture(raw: Dict[str, Any], fixture: Path | None) -> Dict[str, Any]:
             merged[k] = v
     return merged
 
-def run_pipeline(lat: float, lng: float, area_sqft: float, gatta_number: str | None, zone_type: str, output_dir: Path, headless: bool = True, fixture: Path | None = None) -> Dict[str, Any]:
+def run_pipeline(lat: float, lng: float, area_sqft: float, gatta_number: str | None, zone_type: str, output_dir: Path, headless: bool = True, fixture: Path | None = None, fixture_only: bool = False) -> Dict[str, Any]:
     ref_dir = Path(__file__).resolve().parent / 'ref_data'
     output_dir.mkdir(parents=True, exist_ok=True)
     portal_out = output_dir / 'portal_outputs'
@@ -82,17 +82,30 @@ def run_pipeline(lat: float, lng: float, area_sqft: float, gatta_number: str | N
 
     portals_ok = []
     portals_failed = []
+    resolved_gatta = gatta_number  # may be filled in from bhunaksha during the run
 
-    for adapter in ALL_PORTALS:
-        result = adapter.scrape(lat=lat, lng=lng, district=base['district'], gatta_number=gatta_number, output_dir=portal_out, headless=headless)
-        if result.status == 'OK':
-            portals_ok.append(result.portal)
-            raw.update(result.data)
-            raw['portals_scraped'] += 1
-        else:
-            portals_failed.append(result.portal)
+    if fixture_only and fixture:
+        # Skip all live scraping — use fixture as the sole data source.
+        extra = json.loads(fixture.read_text(encoding='utf-8'))
+        raw.update({k: v for k, v in extra.items() if not k.startswith('_')})
+    else:
+        for adapter in ALL_PORTALS:
+            # If bhulekh has no gatta_number yet, try to get it from bhunaksha result
+            if adapter.portal_name == 'bhulekh' and not resolved_gatta:
+                resolved_gatta = raw.get('khasra_number') or None
+                if resolved_gatta:
+                    logger.info(f'[pipeline] Using khasra_number={resolved_gatta!r} from bhunaksha for bhulekh lookup')
 
-    raw = merge_fixture(raw, fixture)
+            scrape_gatta = resolved_gatta if adapter.portal_name == 'bhulekh' else gatta_number
+            result = adapter.scrape(lat=lat, lng=lng, district=base['district'], gatta_number=scrape_gatta, output_dir=portal_out, headless=headless)
+            if result.status == 'OK':
+                portals_ok.append(result.portal)
+                raw.update(result.data)
+                raw['portals_scraped'] += 1
+            else:
+                portals_failed.append(result.portal)
+
+        raw = merge_fixture(raw, fixture)
     normalized = normalize_portal_payloads(raw, ref_dir)
     conflicts, pairs = cross_validate(normalized)
     normalized['conflicts'] = conflicts
@@ -102,7 +115,7 @@ def run_pipeline(lat: float, lng: float, area_sqft: float, gatta_number: str | N
         'scraped_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
         'portals_ok': portals_ok,
         'portals_failed': portals_failed,
-        'gatta_number': gatta_number,
+        'gatta_number': resolved_gatta,
         'lat': lat,
         'lng': lng,
         'area_sqft': area_sqft,
@@ -122,7 +135,8 @@ def main() -> None:
     parser.add_argument('--gatta-number', type=str, default=None)
     parser.add_argument('--zone-type', type=str, default='urban_expansion')
     parser.add_argument('--output-dir', type=Path, default=Path('out'))
-    parser.add_argument('--fixture', type=Path, default=None, help='Optional local JSON fixture merged only for missing fields')
+    parser.add_argument('--fixture', type=Path, default=None, help='Optional local JSON fixture')
+    parser.add_argument('--fixture-only', action='store_true', default=False, help='Skip live scraping; use fixture as sole data source')
     parser.add_argument('--headless', action='store_true', default=False)
     args = parser.parse_args()
 
@@ -135,6 +149,7 @@ def main() -> None:
         output_dir=args.output_dir,
         headless=args.headless,
         fixture=args.fixture,
+        fixture_only=args.fixture_only,
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
 

@@ -1,0 +1,42 @@
+{
+  "_note": "Fixture for gatta 374/1-A, Ayodhya. Matches spec Test Case A inputs.",
+  "gatta_number": "374/1-A",
+  "mutation_status": "PENDING",
+  "bhoomi_prakar": "1-kha",
+  "clu_current": 3,
+  "n_current": 47,
+  "n_previous": 28,
+  "mu_district": 31.0,
+  "sigma_district": 10.3,
+  "p_current": 0,
+  "p_previous": 0,
+  "infra_projects": [
+    {
+      "type_weight": 0.75,
+      "distance_km": 0.4,
+      "stage_multiplier": 1.0,
+      "title": "State highway widening near Ayodhya",
+      "org": "PWD UP"
+    },
+    {
+      "type_weight": 0.60,
+      "distance_km": 0.9,
+      "stage_multiplier": 0.7,
+      "title": "Power substation Faizabad road",
+      "org": "UPPCL"
+    },
+    {
+      "type_weight": 0.50,
+      "distance_km": 1.4,
+      "stage_multiplier": 0.4,
+      "title": "Commercial complex Ayodhya bypass",
+      "org": "CPWD"
+    }
+  ],
+  "rera_projects": [],
+  "portals_scraped": 5,
+  "portals_required": 5,
+  "hours_since_scrape": 2.5,
+  "conflicts": 0,
+  "validation_pairs": 2
+}

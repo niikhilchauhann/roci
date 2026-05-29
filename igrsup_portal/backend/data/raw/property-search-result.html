@@ -1,0 +1,926 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Report</title>
+
+<script type="text/javascript" src="datetimepicker_css.js"></script>
+<script type="text/javascript" language="javascript" src="/igrsup/js/districtAdmin.js"></script>
+<script type="text/javascript" src="progressbar.js"></script>
+<script type="text/javascript" src="keyboard.js"></script>
+         <link rel="stylesheet" type="text/css" href="keyboard.css">
+<script type="text/javascript">
+
+        function ShowProgress() {
+            setTimeout(function() {
+                var modal = $('<div />');
+                modal.addClass("modal");
+                $('body').append(modal);
+                var loading = $(".loading");
+                loading.show();
+                var top = Math.max($(window).height() / 2 - loading[0].offsetHeight / 2, 0);
+                var left = Math.max($(window).width() / 2 - loading[0].offsetWidth / 2, 0);
+                loading.css({ top: top, left: left });
+            }, 200);
+        }
+        $('form').live("submit", function() {
+            ShowProgress();
+        });
+
+
+       
+
+</script>
+   
+<style type="text/css">
+
+.spinner {
+    position:fixed;
+    top: 0%;
+    left: 0%;
+    margin-left: 0px; /* half width of the spinner gif */
+    margin-top: 0px; /* half height of the spinner gif */
+    text-align:center;
+    z-index:1001;
+    width:100%; /* width of the spinner gif */
+    height: 100%; /*hight of the spinner gif +2px to fix IE8 issue */
+}
+.spinnerCir {
+    position:fixed;
+    top: 0%;
+    left: 0%;
+    margin-left: 0px; /* half width of the spinner gif */
+    margin-top: 0px; /* half height of the spinner gif */
+    text-align:center;
+    z-index:1001;
+    width:100%; /* width of the spinner gif */
+    height: 100%; /*hight of the spinner gif +2px to fix IE8 issue */
+}
+    
+.modal
+        {
+            position: fixed;
+            top: 0;
+            left: 0;
+          
+            z-index: 99;
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+            -moz-opacity: 0.8;
+            min-height: 100%;
+            width: 100%;
+}
+.htext
+{
+    background-color: #174D82;
+    color: White;
+    font-size: 14px;
+    text-align :center 
+ 
+}
+.celltext
+{
+    background-color: #E6EEFF;
+    color: #000000;
+    font-size: 12px;
+    
+}
+a
+{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+
+.rowstyle
+{
+    border:solid thin #000000;
+}
+
+
+.style1
+{
+    height: 21px;
+}
+#keypad
+{
+    width: 480px;
+}
+           
+.src
+{
+    background-color: #FFFF00;
+    font-weight: bold;
+    color: #CC0000;
+}
+.srcLink
+{
+    font-weight: bold;
+    text-decoration:none;
+    
+}
+.srcLink:hover
+{
+    font-weight: bold;
+    text-decoration:underline;
+    
+}
+.highlight {text-decoration: none;color:red;background:yellow;}
+
+        </style>
+<script type="text/javascript">
+
+            function setvalue() {
+
+                var content1 = document.getElementById('frm');
+              var content =  content1.getElementsByTagName('input');
+               
+                var iframe = document.getElementById('frm');
+                var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                var usernameTextBox = innerDoc.getElementById('txtHindi');
+                document.getElementById('HiddenField1').value = usernameTextBox.value;
+            }
+        
+</script>
+</head>
+
+<body style="background-color: #F9FCFF">
+   
+<div id="spinner" class="spinner" style="display:none;  width: 100%; height:100%; background-color: rgba(5,5,5, 0.7);">	
+		<center>
+		    <div id="spinnerCir" class="spinnerCir" style="display:block;  width: 100%; height:30%;">
+		    <br><br><br><br><br><br><br><br><br><br><br>
+				     		<img id="img-spinner" src="/igrsup/images/newloading.gif" style="width: 150px;height: 150px;"><br>
+				     		<font style="color: white;font-size: 20px;font-weight: bolder;">प्रक्रिया पूर्ण की जा रही है। कृपया प्रतीक्षा करें..!!</font>  
+			</div>
+		</center>
+</div>
+
+
+<div>
+	<table align="center" style="width :100%;border-top:solid thin black; border-left :solid thin black ;border-right:solid thin black;border-bottom:solid thin black;" cellpadding="0" cellspacing="0" border="0">
+		
+		<tbody><tr style="background-color: #F7F3FC; ">
+		<td></td>
+		<td align="center" colspan="2">
+		    <span id="Label2" style="color:#003366;font-family:Verdana;font-size:16pt;font-weight:bold;">सम्पत्ति पंजीकरण अनुक्रमणिका पंजिका</span>
+		</td>
+		
+		
+		
+		
+		</tr>
+		
+		
+		<tr>
+		<td align="left" colspan="4" style="border-bottom :solid thin #003399 ;  font-weight: bold; border-top: solid thin #003399; background-color: #A9DABA;">जनपद&nbsp;:&nbsp;  
+		    <span id="lbldist" style="color:White;">अयोध्या</span>
+		    
+		   
+		 
+		    
+		    
+		</td>
+		</tr>
+		<tr>
+		<td colspan="4" align="center">
+		<!-- <div id="pageNavPosition" style="padding-top: 20px" align="center"> -->
+		<!-- </div> -->
+		
+		                                <table width="100%" id="tablepaging" class="data" align="center" cellpadding="0" cellspacing="1">
+		     
+		                                <tbody><tr style="border: thin solid #000000">
+		                                    <td height="30" class="htext">
+		                                        <b>क्र.सं.</b>
+		                                    </td>
+		                                    <td class="htext">
+		                                        <b>पंजी. वर्ष</b>
+		                                    </td>
+		                                    <td class="htext">
+		                                        <b>पंजी. सं.</b>
+		                                    </td>
+		                                    <td class="htext">
+		                                        <b>पक्षकार का नाम</b>
+		                                    </td>
+		                                    
+		                                    
+		                                    <td class="htext">
+		                                        <b>पक्षकार का पता</b>
+		                                    </td>
+		                                    
+		                                    
+		                                    <td class="htext">
+		                                        <b>सम्पत्ति का विवरण</b>
+		                                    </td>
+		                                    
+		                                    
+		                                    
+		                                    <td class="htext">
+		                                        <b>खसरा /मकान /गाटा संख्या</b>
+		                                    </td>
+		                                    
+		                                     <td class="htext">
+		                                        <b>पंजीकरण तिथि </b>
+		                                    </td>
+		                                    
+		                                    <td class="htext">
+		                                        <b>लेखपत्र का विवरण</b>
+		                                    </td>
+		                                    
+		                                    
+		                                    
+		                                    <td class="htext"><b>पूर्ण विवरण देखें</b></td>
+		                                    
+		                                    <!-- <td  class="htext"><b>स्कैन्ड लेखपत्र देखें</b></td> -->       
+		                                     
+		                                </tr>
+		               
+		 
+		                     
+		                        
+		                            <tr style="border: thin solid #000000">
+		                                   <td class="celltext" style="text-align: center ">1</td>
+		                                   <td class="celltext" style="text-align: center ">2019</td>
+		                                    <td class="celltext" style="text-align: center ">2328</td>
+		                                    <td class="celltext" style="text-align: left ">
+		                                     <table>
+		                                              <tbody><tr>
+		                                               <td class="celltext" style="text-align:left ">
+		                                                
+		                                                  श्री श्रीराम, पुत्र श्री रघुवीर प्रसाद,<br> 
+		                                                  
+		                                                  श्री जुबैद अहमद, पुत्र श्री मुंशी रज़ा,<br> 
+		                                                  
+		                                                  श्री बिलाल अहमद, पुत्र श्री स्व० मो० समी ठ,<br> 
+		                                                  
+		                                              
+		                                                  </td>
+		                                                 
+		                                              </tr>
+		                                          
+		                                      </tbody></table>
+		                                   </td>
+		                                  <td class="celltext" style="text-align: left ">
+		                                  <table>
+		                                  <tbody><tr>
+		                                  <td class="celltext" style="text-align:left ">
+		                                  
+		                                    दिल्ली दरवाज़ा परगना हवेली अवध तहसील सदर जिला अयोध्या।, <br>
+		                                    
+		                                    3/5/41D  ठठरहिया नई कॉलोनी तहसील सदर जिला अयोध्या, <br>
+		                                    
+		                                    ठठरहिया अंगूरीबाग तहसील सदर जिला अयोध्या, <br>
+		                                    
+		                                  
+		                                    
+		                                    </td>
+		                                    </tr></tbody></table>
+		                                   </td>
+		                                    <td class="celltext" style="text-align:left; ">
+		                                   <span id="Repeater1_ctl01_lblregno">
+		                                   गाटा संख्या 3211</span>  
+		                                   </td>
+		                                   <td class="celltext" style="text-align: left ">
+		                                   3211
+		                                   </td>
+		                                   <td class="celltext">
+		                                   29 MAR 2019
+		                                   </td>
+		                                   <td class="celltext">
+		                                   विक्रय पत्र
+		                                   </td>
+		                                    <td class="celltext">
+		                                    <form method="post" action="propertySearchViewDetail" target="_blank">
+		
+		                                   
+		
+											<input type="hidden" name="dcode" value="177">
+		                				   <input type="hidden" name="regno" value="2328">
+		                				   <input type="hidden" name="regyear" value="2019">
+		                				   <input type="hidden" name="regdate" value="29 MAR 2019">
+		                				   <input type="hidden" name="srocode" value="120">
+		                				    <input type="hidden" name="recieptNo" value="201900905003352">
+		                				     <input type="hidden" name="pcode" value="0202">
+		                				      <input type="hidden" name="propertyNum" value="">
+		                				        <input type="hidden" name="subDeedCode" value="1">
+		
+		
+		
+		
+		
+		
+		
+		
+		 										<a href="javascript:;" onclick="parentNode.submit();">चयन करे</a>
+		
+										
+		                                    
+		                                     </form>
+		                                    </td>
+		                                    
+		                              </tr>
+		                              <tr>
+				<td colspan="0" style="background-color:DimGray;height:1px;"></td>
+			</tr>
+		                              
+		                     
+		                        
+		                            <tr style="border: thin solid #000000">
+		                                   <td class="celltext" style="text-align: center ">2</td>
+		                                   <td class="celltext" style="text-align: center ">2018</td>
+		                                    <td class="celltext" style="text-align: center ">3190</td>
+		                                    <td class="celltext" style="text-align: left ">
+		                                     <table>
+		                                              <tbody><tr>
+		                                               <td class="celltext" style="text-align:left ">
+		                                                
+		                                                  श्री एेनुद्दीन मिर्जा, पुत्र श्री स्व.वलीउद्दीन मिर्जा,<br> 
+		                                                  
+		                                                  श्री फरहान अहमद, पुत्र श्री शमशाद अहमद,<br> 
+		                                                  
+		                                                  श्री बिलाल अहमद, पुत्र श्री शमशाद अहमद,<br> 
+		                                                  
+		                                                  श्री नोमान अहमद, पुत्र श्री शमशाद अहमद,<br> 
+		                                                  
+		                                              
+		                                                  </td>
+		                                                 
+		                                              </tr>
+		                                          
+		                                      </tbody></table>
+		                                   </td>
+		                                  <td class="celltext" style="text-align: left ">
+		                                  <table>
+		                                  <tbody><tr>
+		                                  <td class="celltext" style="text-align:left ">
+		                                  
+		                                    बुचनीगंज सहादतगंज फैजाबाद, <br>
+		                                    
+		                                    ठठरहिया अंगूरीबाग फैजाबाद, <br>
+		                                    
+		                                    ठठरहिया अंगूरीबाग फैजाबाद, <br>
+		                                    
+		                                    ठठरहिया अंगूरीबाग फैजाबाद , <br>
+		                                    
+		                                  
+		                                    
+		                                    </td>
+		                                    </tr></tbody></table>
+		                                   </td>
+		                                    <td class="celltext" style="text-align:left; ">
+		                                   <span id="Repeater1_ctl01_lblregno">
+		                                   भूमि न. 3210 मि 3211 मि चक न.11</span>  
+		                                   </td>
+		                                   <td class="celltext" style="text-align: left ">
+		                                   भूमि न. 3210 मि 3211 मि
+		                                   </td>
+		                                   <td class="celltext">
+		                                   28 APR 2018
+		                                   </td>
+		                                   <td class="celltext">
+		                                   विक्रय पत्र
+		                                   </td>
+		                                    <td class="celltext">
+		                                    <form method="post" action="propertySearchViewDetail" target="_blank">
+		
+		                                   
+		
+											<input type="hidden" name="dcode" value="177">
+		                				   <input type="hidden" name="regno" value="3190">
+		                				   <input type="hidden" name="regyear" value="2018">
+		                				   <input type="hidden" name="regdate" value="28 APR 2018">
+		                				   <input type="hidden" name="srocode" value="120">
+		                				    <input type="hidden" name="recieptNo" value="201800905004431">
+		                				     <input type="hidden" name="pcode" value="0203">
+		                				      <input type="hidden" name="propertyNum" value="">
+		                				        <input type="hidden" name="subDeedCode" value="1">
+		
+		
+		
+		
+		
+		
+		
+		
+		 										<a href="javascript:;" onclick="parentNode.submit();">चयन करे</a>
+		
+										
+		                                    
+		                                     </form>
+		                                    </td>
+		                                    
+		                              </tr>
+		                              <tr>
+				<td colspan="0" style="background-color:DimGray;height:1px;"></td>
+			</tr>
+		                              
+		                     
+		                        
+		                            <tr style="border: thin solid #000000">
+		                                   <td class="celltext" style="text-align: center ">3</td>
+		                                   <td class="celltext" style="text-align: center ">2018</td>
+		                                    <td class="celltext" style="text-align: center ">8309</td>
+		                                    <td class="celltext" style="text-align: left ">
+		                                     <table>
+		                                              <tbody><tr>
+		                                               <td class="celltext" style="text-align:left ">
+		                                                
+		                                                  श्री श्रीराम, पुत्र श्री स्व० रघुवीर प्रसाद उर्फ राम रघुवीर अग्रवाल,<br> 
+		                                                  
+		                                                  श्री अनिल कुमार, पुत्र श्री गुरनादास,<br> 
+		                                                  
+		                                                  श्री राकेश कुमार हासानी, पुत्र श्री गुरनादास,<br> 
+		                                                  
+		                                                  श्री यश हासानी, पुत्र श्री जितेन्द्र हासानी,<br> 
+		                                                  
+		                                              
+		                                                  </td>
+		                                                 
+		                                              </tr>
+		                                          
+		                                      </tbody></table>
+		                                   </td>
+		                                  <td class="celltext" style="text-align: left ">
+		                                  <table>
+		                                  <tbody><tr>
+		                                  <td class="celltext" style="text-align:left ">
+		                                  
+		                                    नि. दिल्ली दरवाजा पो. सदर पर. हवेली अवध तह. सदर जिला फैजाबाद, <br>
+		                                    
+		                                    मं नं 951 टकसाल रिकाबगंज पो. सदर पर. हवेली अवध तह. सदर जिला फैजाबाद, <br>
+		                                    
+		                                    सा. मं नं 951 टकसाल रिकाबगंज पर. हवेली अवध तह. सदर जिला फैजाबाद , <br>
+		                                    
+		                                    सा. मं नं 951 टकसाल रिकाबगंज पो. सदर पर. हवेली अवध तह. सदर जिला फैजाबाद , <br>
+		                                    
+		                                  
+		                                    
+		                                    </td>
+		                                    </tr></tbody></table>
+		                                   </td>
+		                                    <td class="celltext" style="text-align:left; ">
+		                                   <span id="Repeater1_ctl01_lblregno">
+		                                   भूमि नं 3210मि. व 3211मि. </span>  
+		                                   </td>
+		                                   <td class="celltext" style="text-align: left ">
+		                                   
+		                                   </td>
+		                                   <td class="celltext">
+		                                   27 OCT 2018
+		                                   </td>
+		                                   <td class="celltext">
+		                                   विक्रय पत्र
+		                                   </td>
+		                                    <td class="celltext">
+		                                    <form method="post" action="propertySearchViewDetail" target="_blank">
+		
+		                                   
+		
+											<input type="hidden" name="dcode" value="177">
+		                				   <input type="hidden" name="regno" value="8309">
+		                				   <input type="hidden" name="regyear" value="2018">
+		                				   <input type="hidden" name="regdate" value="27 OCT 2018">
+		                				   <input type="hidden" name="srocode" value="120">
+		                				    <input type="hidden" name="recieptNo" value="201800905012163">
+		                				     <input type="hidden" name="pcode" value="0203">
+		                				      <input type="hidden" name="propertyNum" value="">
+		                				        <input type="hidden" name="subDeedCode" value="1">
+		
+		
+		
+		
+		
+		
+		
+		
+		 										<a href="javascript:;" onclick="parentNode.submit();">चयन करे</a>
+		
+										
+		                                    
+		                                     </form>
+		                                    </td>
+		                                    
+		                              </tr>
+		                              <tr>
+				<td colspan="0" style="background-color:DimGray;height:1px;"></td>
+			</tr>
+		                              
+		                     
+		                        
+		                            <tr style="border: thin solid #000000">
+		                                   <td class="celltext" style="text-align: center ">4</td>
+		                                   <td class="celltext" style="text-align: center ">2020</td>
+		                                    <td class="celltext" style="text-align: center ">195</td>
+		                                    <td class="celltext" style="text-align: left ">
+		                                     <table>
+		                                              <tbody><tr>
+		                                               <td class="celltext" style="text-align:left ">
+		                                                
+		                                                  सी बी आई शाखा बिधूना, ,<br> 
+		                                                  
+		                                                  प्रशान्त, अशोक कुमार,<br> 
+		                                                  
+		                                                  प्रशान्त, अशोक कुमार,<br> 
+		                                                  
+		                                                  प्रशान्त, अशोक कुमार,<br> 
+		                                                  
+		                                                  प्रशान्त, अशोक कुमार,<br> 
+		                                                  
+		                                                  प्रशान्त, अशोक कुमार,<br> 
+		                                                  
+		                                                  प्रशान्त, अशोक कुमार,<br> 
+		                                                  
+		                                              
+		                                                  </td>
+		                                                 
+		                                              </tr>
+		                                          
+		                                      </tbody></table>
+		                                   </td>
+		                                  <td class="celltext" style="text-align: left ">
+		                                  <table>
+		                                  <tbody><tr>
+		                                  <td class="celltext" style="text-align:left ">
+		                                  
+		                                    बिधूना, <br>
+		                                    
+		                                    बिधूना तह0 बिधूना औरैया , <br>
+		                                    
+		                                    बिधूना तह0 बिधूना औरैया , <br>
+		                                    
+		                                    बिधूना तह0 बिधूना औरैया , <br>
+		                                    
+		                                    बिधूना तह0 बिधूना औरैया , <br>
+		                                    
+		                                    बिधूना तह0 बिधूना औरैया , <br>
+		                                    
+		                                    बिधूना तह0 बिधूना औरैया , <br>
+		                                    
+		                                  
+		                                    
+		                                    </td>
+		                                    </tr></tbody></table>
+		                                   </td>
+		                                    <td class="celltext" style="text-align:left; ">
+		                                   <span id="Repeater1_ctl01_lblregno">
+		                                   </span>  
+		                                   </td>
+		                                   <td class="celltext" style="text-align: left ">
+		                                   971 कु0 2 किता 
+		                                   </td>
+		                                   <td class="celltext">
+		                                   08 JAN 2020
+		                                   </td>
+		                                   <td class="celltext">
+		                                   बंधक पत्र(बैंक कृषि ऋण)
+		                                   </td>
+		                                    <td class="celltext">
+		                                    <form method="post" action="propertySearchViewDetail" target="_blank">
+		
+		                                   
+		
+											<input type="hidden" name="dcode" value="162">
+		                				   <input type="hidden" name="regno" value="195">
+		                				   <input type="hidden" name="regyear" value="2020">
+		                				   <input type="hidden" name="regdate" value="08 JAN 2020">
+		                				   <input type="hidden" name="srocode" value="033">
+		                				    <input type="hidden" name="recieptNo" value="202000841000307">
+		                				     <input type="hidden" name="pcode" value="0206">
+		                				      <input type="hidden" name="propertyNum" value="5040472">
+		                				        <input type="hidden" name="subDeedCode" value="4">
+		
+		
+		
+		
+		
+		
+		
+		
+		 										<a href="javascript:;" onclick="parentNode.submit();">चयन करे</a>
+		
+										
+		                                    
+		                                     </form>
+		                                    </td>
+		                                    
+		                              </tr>
+		                              <tr>
+				<td colspan="0" style="background-color:DimGray;height:1px;"></td>
+			</tr>
+		                              
+		                     
+		                        
+		                            <tr style="border: thin solid #000000">
+		                                   <td class="celltext" style="text-align: center ">5</td>
+		                                   <td class="celltext" style="text-align: center ">2019</td>
+		                                    <td class="celltext" style="text-align: center ">9361</td>
+		                                    <td class="celltext" style="text-align: left ">
+		                                     <table>
+		                                              <tbody><tr>
+		                                               <td class="celltext" style="text-align:left ">
+		                                                
+		                                                  एस बी आई शाखा बिधूना, ,<br> 
+		                                                  
+		                                                  उमेश चन्द्र, सोनेलाल सविता,<br> 
+		                                                  
+		                                                  उमेश चन्द्र, सोने लाल सविता,<br> 
+		                                                  
+		                                                  उमेश चन्द्र, सोने लाल सविता,<br> 
+		                                                  
+		                                              
+		                                                  </td>
+		                                                 
+		                                              </tr>
+		                                          
+		                                      </tbody></table>
+		                                   </td>
+		                                  <td class="celltext" style="text-align: left ">
+		                                  <table>
+		                                  <tbody><tr>
+		                                  <td class="celltext" style="text-align:left ">
+		                                  
+		                                    बिधूना, <br>
+		                                    
+		                                    आर्यनगर तह0 बिधूना औरैया , <br>
+		                                    
+		                                    आर्यनगर तह बिधूना औरैया , <br>
+		                                    
+		                                    आर्यनगर तह0 बिधूना औरैया , <br>
+		                                    
+		                                  
+		                                    
+		                                    </td>
+		                                    </tr></tbody></table>
+		                                   </td>
+		                                    <td class="celltext" style="text-align:left; ">
+		                                   <span id="Repeater1_ctl01_lblregno">
+		                                   </span>  
+		                                   </td>
+		                                   <td class="celltext" style="text-align: left ">
+		                                   1051 कु0 2 किता 
+		                                   </td>
+		                                   <td class="celltext">
+		                                   18 OCT 2019
+		                                   </td>
+		                                   <td class="celltext">
+		                                   बंधक पत्र(बैंक कृषि ऋण)
+		                                   </td>
+		                                    <td class="celltext">
+		                                    <form method="post" action="propertySearchViewDetail" target="_blank">
+		
+		                                   
+		
+											<input type="hidden" name="dcode" value="162">
+		                				   <input type="hidden" name="regno" value="9361">
+		                				   <input type="hidden" name="regyear" value="2019">
+		                				   <input type="hidden" name="regdate" value="18 OCT 2019">
+		                				   <input type="hidden" name="srocode" value="033">
+		                				    <input type="hidden" name="recieptNo" value="201900841012969">
+		                				     <input type="hidden" name="pcode" value="0203">
+		                				      <input type="hidden" name="propertyNum" value="4453279">
+		                				        <input type="hidden" name="subDeedCode" value="4">
+		
+		
+		
+		
+		
+		
+		
+		
+		 										<a href="javascript:;" onclick="parentNode.submit();">चयन करे</a>
+		
+										
+		                                    
+		                                     </form>
+		                                    </td>
+		                                    
+		                              </tr>
+		                              <tr>
+				<td colspan="0" style="background-color:DimGray;height:1px;"></td>
+			</tr>
+		                              
+		                     
+		                        
+		                            <tr style="border: thin solid #000000">
+		                                   <td class="celltext" style="text-align: center ">6</td>
+		                                   <td class="celltext" style="text-align: center ">2019</td>
+		                                    <td class="celltext" style="text-align: center ">10617</td>
+		                                    <td class="celltext" style="text-align: left ">
+		                                     <table>
+		                                              <tbody><tr>
+		                                               <td class="celltext" style="text-align:left ">
+		                                                
+		                                                  एस बी आई शाखा बिधूना, ,<br> 
+		                                                  
+		                                                  उमेश चन्द्र, सोनेलाल सविता,<br> 
+		                                                  
+		                                                  आशा देवी, उमेश चन्द्र,<br> 
+		                                                  
+		                                                  उमेश चन्द्र, सोनेलाल साविता,<br> 
+		                                                  
+		                                              
+		                                                  </td>
+		                                                 
+		                                              </tr>
+		                                          
+		                                      </tbody></table>
+		                                   </td>
+		                                  <td class="celltext" style="text-align: left ">
+		                                  <table>
+		                                  <tbody><tr>
+		                                  <td class="celltext" style="text-align:left ">
+		                                  
+		                                    बिधूना, <br>
+		                                    
+		                                    आर्यनगर तह0बिधूना जिला औरैया , <br>
+		                                    
+		                                    आर्यनगर तह0बिधूना जिला औरैया , <br>
+		                                    
+		                                    आर्यनगर तह0बिधूना जिला औरैया , <br>
+		                                    
+		                                  
+		                                    
+		                                    </td>
+		                                    </tr></tbody></table>
+		                                   </td>
+		                                    <td class="celltext" style="text-align:left; ">
+		                                   <span id="Repeater1_ctl01_lblregno">
+		                                   </span>  
+		                                   </td>
+		                                   <td class="celltext" style="text-align: left ">
+		                                   1051 कुल 2किता 
+		                                   </td>
+		                                   <td class="celltext">
+		                                   30 NOV 2019
+		                                   </td>
+		                                   <td class="celltext">
+		                                   बंधक पत्र(बैंक कृषि ऋण)
+		                                   </td>
+		                                    <td class="celltext">
+		                                    <form method="post" action="propertySearchViewDetail" target="_blank">
+		
+		                                   
+		
+											<input type="hidden" name="dcode" value="162">
+		                				   <input type="hidden" name="regno" value="10617">
+		                				   <input type="hidden" name="regyear" value="2019">
+		                				   <input type="hidden" name="regdate" value="30 NOV 2019">
+		                				   <input type="hidden" name="srocode" value="033">
+		                				    <input type="hidden" name="recieptNo" value="201900841014641">
+		                				     <input type="hidden" name="pcode" value="0203">
+		                				      <input type="hidden" name="propertyNum" value="4749129">
+		                				        <input type="hidden" name="subDeedCode" value="4">
+		
+		
+		
+		
+		
+		
+		
+		
+		 										<a href="javascript:;" onclick="parentNode.submit();">चयन करे</a>
+		
+										
+		                                    
+		                                     </form>
+		                                    </td>
+		                                    
+		                              </tr>
+		                              <tr>
+				<td colspan="0" style="background-color:DimGray;height:1px;"></td>
+			</tr>
+		                              
+		                     
+		                        
+		                            <tr style="border: thin solid #000000">
+		                                   <td class="celltext" style="text-align: center ">7</td>
+		                                   <td class="celltext" style="text-align: center ">2018</td>
+		                                    <td class="celltext" style="text-align: center ">11774</td>
+		                                    <td class="celltext" style="text-align: left ">
+		                                     <table>
+		                                              <tbody><tr>
+		                                               <td class="celltext" style="text-align:left ">
+		                                                
+		                                                  एस बी आई शाखा बिधूना, ,<br> 
+		                                                  
+		                                                  कल्यान सिह, राम सिह,<br> 
+		                                                  
+		                                                  कल्यान सिह, राम सिह,<br> 
+		                                                  
+		                                              
+		                                                  </td>
+		                                                 
+		                                              </tr>
+		                                          
+		                                      </tbody></table>
+		                                   </td>
+		                                  <td class="celltext" style="text-align: left ">
+		                                  <table>
+		                                  <tbody><tr>
+		                                  <td class="celltext" style="text-align:left ">
+		                                  
+		                                    बिधूना, <br>
+		                                    
+		                                    कस्वा बिधूना तह0 बिधूना औरैया , <br>
+		                                    
+		                                    कस्वा  बिधूना तह0 बिधूना औरैया , <br>
+		                                    
+		                                  
+		                                    
+		                                    </td>
+		                                    </tr></tbody></table>
+		                                   </td>
+		                                    <td class="celltext" style="text-align:left; ">
+		                                   <span id="Repeater1_ctl01_lblregno">
+		                                   </span>  
+		                                   </td>
+		                                   <td class="celltext" style="text-align: left ">
+		                                   969मि0 कु0 14 किता 
+		                                   </td>
+		                                   <td class="celltext">
+		                                   27 NOV 2018
+		                                   </td>
+		                                   <td class="celltext">
+		                                   बंधक पत्र(बैंक कृषि ऋण)
+		                                   </td>
+		                                    <td class="celltext">
+		                                    <form method="post" action="propertySearchViewDetail" target="_blank">
+		
+		                                   
+		
+											<input type="hidden" name="dcode" value="162">
+		                				   <input type="hidden" name="regno" value="11774">
+		                				   <input type="hidden" name="regyear" value="2018">
+		                				   <input type="hidden" name="regdate" value="27 NOV 2018">
+		                				   <input type="hidden" name="srocode" value="033">
+		                				    <input type="hidden" name="recieptNo" value="201800841020961">
+		                				     <input type="hidden" name="pcode" value="0202">
+		                				      <input type="hidden" name="propertyNum" value="1945384">
+		                				        <input type="hidden" name="subDeedCode" value="4">
+		
+		
+		
+		
+		
+		
+		
+		
+		 										<a href="javascript:;" onclick="parentNode.submit();">चयन करे</a>
+		
+										
+		                                    
+		                                     </form>
+		                                    </td>
+		                                    
+		                              </tr>
+		                              <tr>
+				<td colspan="0" style="background-color:DimGray;height:1px;"></td>
+			</tr>
+		                              
+		                     
+		       <!--      ////////////////////////////      --> 
+		        
+		         
+		                      
+		                   </tbody></table>
+		                   
+		<!--                               <div id="pageNavPositionBottom" style="padding-top: 20px" align="center"> -->
+		<!-- </div> -->
+		            </td>
+		         </tr>    
+		
+		
+		
+		<tr>
+			<td colspan="4" style="border-bottom-style: solid; border-bottom-width: thin; border-bottom-color: #000000;">
+		    	&nbsp;
+			</td>
+		</tr>
+		
+		
+		
+	</tbody></table>
+		 
+
+ </div>
+   <div align="center" style="padding: 20px;">
+  <table border="6" bordercolor="red" b="" style="font-weight: bold;color: black;font-size: 22px">
+    
+      <tbody><tr><td colspan="12">    
+        
+      **Information provided online is updated, and no physical visit is required.**
+       </td>
+         </tr> 
+        </tbody></table>
+    </div>
+
+
+<script type="text/javascript">
+document.getElementById('spinner').style.display='none';			
+</script>    
+
+
+</body></html>

@@ -1,0 +1,25 @@
+{
+  "cookies": [
+    {
+      "name": "JSESSIONID",
+      "value": "C9B732C4C41BDA2CEF7272767DA878FA",
+      "domain": "igrsup.gov.in",
+      "path": "/igrsup",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "JAVAFIXATION",
+      "value": "MgqRzx9rvnCrtbh852Bs3s0pH5RnS0uS",
+      "domain": "igrsup.gov.in",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}

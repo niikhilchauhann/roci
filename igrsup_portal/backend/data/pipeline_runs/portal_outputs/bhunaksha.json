@@ -1,0 +1,14 @@
+{
+  "data": {
+    "khasra_number": null
+  },
+  "note": "Could not resolve khasra via village match or Playwright",
+  "portal": "bhunaksha",
+  "query": {
+    "district": "Ayodhya",
+    "lat": 26.7783,
+    "lng": 82.2029
+  },
+  "status": "EMPTY_PAGE",
+  "url": "https://upbhunaksha.gov.in"
+}

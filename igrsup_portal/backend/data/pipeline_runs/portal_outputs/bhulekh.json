@@ -1,0 +1,13 @@
+{
+  "data": {},
+  "note": "No bhunaksha village found for these coordinates",
+  "portal": "bhulekh",
+  "query": {
+    "district": "Ayodhya",
+    "gatta_number": "158",
+    "lat": 26.7783,
+    "lng": 82.2029
+  },
+  "status": "EMPTY_PAGE",
+  "url": "https://upbhulekh.gov.in"
+}
