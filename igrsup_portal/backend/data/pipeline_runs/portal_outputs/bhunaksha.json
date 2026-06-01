@@ -1,14 +1,19 @@
 {
   "data": {
-    "khasra_number": null
+    "giscode": "17700905166430",
+    "khasra_number": "212",
+    "plot_info": {
+      "raw": "Khata No: 00302   Plot No: 212क    Area : 0.6340 Hectare\nKhata No: 00316   Plot No: 212ख    Area : 0.4150 Hectare\n\n\nOwner Details For Khata No.:- 00302\n1 :-  नाम :   तालाब     संरक्षक का नाम : ---     निवास स्थान : नि.ग्राम\nOwner Details For Khata No.:- 00316\n1 :-  नाम :   पेड लगाने हेतु     संरक्षक का नाम : ---     निवास स्थान : नि.ग्राम\n\n\n"
+    },
+    "village_name": "Ashapur"
   },
-  "note": "Could not resolve khasra via village match or Playwright",
+  "note": "",
   "portal": "bhunaksha",
   "query": {
     "district": "Ayodhya",
-    "lat": 26.7783,
-    "lng": 82.2029
+    "lat": 26.7784,
+    "lng": 82.1798
   },
-  "status": "EMPTY_PAGE",
+  "status": "OK",
   "url": "https://upbhunaksha.gov.in"
 }

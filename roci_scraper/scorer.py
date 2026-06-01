@@ -15,7 +15,7 @@ MUTATION_PENALTIES = {
     'CLEAR': 0,
     'PENDING': -4,
     'NOT_INIT': -8,
-    'TAX_DUES': 0,
+    'TAX_DUES': -4,
     'DISPUTED': -12,
     'UNKNOWN': 0,
 }

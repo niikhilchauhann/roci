@@ -11,7 +11,7 @@ from loguru import logger
 from .normalize import normalize_portal_payloads
 from .schema import ScoreInput
 from .scorer import compute_roci
-from .utils import load_json, save_json, safe_float
+from .utils import load_json, save_json
 from .validator import cross_validate
 from .zone_detector import detect_zone
 from .portals.registry import ALL_PORTALS
@@ -20,9 +20,24 @@ def load_master_plan(ref_dir: Path, district: str) -> Dict[str, Any]:
     mp = load_json(ref_dir / 'master_plan.json')
     return mp.get(district, mp['__default'])
 
+def _area_adjusted_far(base_far: float, area_sqft: float) -> float:
+    """
+    Adjust permitted FAR based on plot size using a log scale.
+    Reference point: 2000 sqft = standard FAR (multiplier = 1.0)
+    Range: ~0.80x (tiny plots) to ~1.10x (very large plots)
+    """
+    import math
+    area_sqft = max(area_sqft, 100)
+    # log2(area/2000): negative for small, 0 at 2000, positive for large
+    multiplier = 1.0 + 0.12 * math.log2(area_sqft / 2000.0)
+    multiplier = max(0.65, min(multiplier, 1.30))
+    return round(base_far * multiplier, 3)
+
+
 def build_base(lat: float, lng: float, area_sqft: float, gatta_number: str | None, zone_type: str, ref_dir: Path) -> Dict[str, Any]:
     zone = detect_zone(lat, lng, ref_dir)
     master = load_master_plan(ref_dir, zone.district)
+    far_subject = _area_adjusted_far(master['far_subject'], area_sqft)
     return {
         'lat': lat,
         'lng': lng,
@@ -31,7 +46,7 @@ def build_base(lat: float, lng: float, area_sqft: float, gatta_number: str | Non
         'zone_type': zone_type or 'urban_expansion',
         'lambda_decay': zone.lambda_decay,
         'clu_permitted': master['clu_permitted'],
-        'far_subject': master['far_subject'],
+        'far_subject': round(far_subject, 3),
         'far_benchmark': master['far_benchmark'],
         'district': zone.district,
         'sro_id': zone.sro_id,

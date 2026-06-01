@@ -1,13 +1,29 @@
 {
-  "data": {},
-  "note": "No bhunaksha village found for these coordinates",
+  "data": {
+    "all_khasras": [
+      "339मि.",
+      "339मि"
+    ],
+    "area_ha": "0.1140",
+    "bhoomi_prakar": "1-क",
+    "bhoomi_prakar_desc": "Bhumi Joe Kadhikara",
+    "clu_current": 2,
+    "gatta_number": "339",
+    "khasra_no": "339मि.",
+    "khata_number": "00130",
+    "khatauni_text": "District : ayodhya^ayodhaya^ayodya^ajudiya\nTahsil : sadar^sadara^saddar\nGram : ankwara\nGram Kod : 166430\nFasli Year : 1427-1432 (01 Jul, 2019 Se 30 Joon, 2025)\nKhata Number : 00130\nLand Type : 1-k/Bhumi Joe Kadhikara\nKhatedar Ka Vivaran\tKhatedari Prarambh Ka Vivaran\tBhumi Ka Vivaran\tKhatedar Ka Ansh\nKhasra/gata Sankhya\t(2)\nNam/pita-pati-sanrakshak-prabandhak Ka Nam / Jati Kod / Adhar No0 (antim Char Ank) Athawa Pain No0 (6-9 Sthan K Ank) / Pata / Janmatithi (avaysc Hetu)\t(3)\nKa Nam / Computerikrit Vad Sankhya Athawa Order Sankhya / Order Ka Dinank / Jot Ka Adhar\t(4)\nvarsh\t(5)\nGata ( Kod)\t(6)\nKa Kul Kshetrafal()\t(7)\nHisse\t(8)\nKshetrafal ()\t(9)\nKhatedar Dwara Dey Bhu-rajaswa\n339.\t\n1) Mo.kasim / Mo.yackub / नि. ग्राम\n\t\t1414\t339. (1664300339200112)\nKripaya Ki Prsthiti ( (gata) K Vad Grast / /bhu-naksha / Bahi ) Hetu Survey Number Par Klick\n0.1140\t\n1) 1/1\n\t\n1) 0.1140\n\t\n4.25\n\n\t0.1140\t\nKul : ek^ache\tKul Kshetrafal : Shunya Dashamlau Ek Ek Char Shunya (hectare)\tKul Bhu-rajaswa : Char Dashamlau Do Panch rupees\tKul Ansh Ka Kshetrafal : Shunya Dashamlau Ek Ek Char Shunya (hectare)\n/ Pariwartan Ka Vivaran\tKharij Kiya Gaya\tKiya Gaya\n(10)\nKa Nam / Computerikrit Vad Sankhya Athawa Order Sankhya / Order Ka Dinank / Ka Adhar / Digital Nam (padnam) / Digital Dinank\t(11)\nNam/pita-pati-sanrakshak-prabandhak Ka Nam / Jati Kod / Adhar No0 (antim Char Ank) Athawa Pain No0 (6-9 Sthan K Ank) / Pata / Janmatithi (avaysc Hetu)\t(12)\nKa Khasra Number / Kod\t(13)\nKshetrafal()\t(14)\nNam/pita-pati-sanrakshak-prabandhak Ka Nam / Jati Kod / Adhar No0 (antim Char Ank) Athawa Pain No0 (6-9 Sthan K Ank) / Pata / Janmatithi (avaysc Hetu)\t(15)\nKa Khasra Number / Kod\t(16)\nKshetrafal()\n\t\t\t\t\n\n\nBhumi K Rajaswa Vad Ki Computerikrit Sankhya\n\n(18) /-mukt Ki Sthiti\n\n(18.1) Ki Sthiti (sanstha Athawa Bank Ka Nam/kod/ Ka Dinank/dhanrashi/ Sankhya//khatedar(pita-pati-sanrakshak))\n\n(18.2) -mukt Ki Sthiti (sanstha Athawa Bank Ka Nam/kod/-mukt Ka Dinank/dhanrashi/ Sankhya//khatedar(pita-pati-sanrakshak)) :\n\n\n(19) :\n\nPurva Ka Vivaran :\n\nKripaya Ki Prsthiti ( (gata) K Vad Grast / /bhu-naksha / Bahi ) Hetu Survey Number Par Klick",
+    "mutation_status": "TAX_DUES",
+    "owner_names": [],
+    "unique_code": "1664300339200112"
+  },
+  "note": "",
   "portal": "bhulekh",
   "query": {
     "district": "Ayodhya",
-    "gatta_number": "158",
-    "lat": 26.7783,
-    "lng": 82.2029
+    "gatta_number": "339",
+    "lat": 26.7397,
+    "lng": 82.1547
   },
-  "status": "EMPTY_PAGE",
+  "status": "OK",
   "url": "https://upbhulekh.gov.in"
 }

@@ -1,27 +1,27 @@
 {
   "components": {
-    "base_score": 0.5753,
+    "base_score": 0.6049,
     "c_adj": 1.0,
-    "c_score": 0.843,
+    "c_score": 0.928,
     "clu_base": 0.625,
     "clu_t": 0.625,
-    "far_h": 1.136,
+    "far_h": 1.477,
     "is_t": 0.1867,
     "r_clu_pending": 0,
     "r_clu_risk": 0,
     "r_mutation": 0,
     "r_total": 0,
     "r_zoning": 0,
-    "rera_d": 0.3453,
-    "roci_post_conf": 65.38,
-    "roci_pre": 65.38,
+    "rera_d": 0.5428,
+    "roci_post_conf": 89.37,
+    "roci_pre": 89.37,
     "rv_t": 0.8063,
     "velocity_z": 1.426
   },
   "inputs_echo": {
     "clu_current": 2,
     "clu_permitted": 7,
-    "mutation_status": "CLEAR",
+    "mutation_status": "UNKNOWN",
     "weights": [
       0.38,
       0.32,
@@ -41,10 +41,19 @@
       "status_text": ""
     },
     {
-      "distance_km": 2.321,
-      "name": "The Sarayu 3",
+      "distance_km": 1.065,
+      "name": "The Sarayu 4",
       "promoter": "",
-      "reg_number": "UPRERAPRJ77448",
+      "reg_number": "UPRERAPRJ39731",
+      "scale_weight": 0.8,
+      "stage_multiplier": 0.5,
+      "status_text": ""
+    },
+    {
+      "distance_km": 1.065,
+      "name": "The Sarayu 5 (The Sarayu Phase 2C)",
+      "promoter": "",
+      "reg_number": "UPRERAPRJ37887",
       "scale_weight": 0.8,
       "stage_multiplier": 0.5,
       "status_text": ""
@@ -60,23 +69,21 @@
     }
   ],
   "risk_flags": [],
-  "roci_final": 65.38,
+  "roci_final": 89.37,
   "scrape_metadata": {
-    "area_sqft": 8000.0,
-    "gatta_number": "158",
-    "lat": 26.7783,
-    "lng": 82.2029,
-    "portals_failed": [
-      "bhunaksha",
-      "bhulekh"
-    ],
+    "area_sqft": 54440.0,
+    "gatta_number": "339",
+    "lat": 26.7397,
+    "lng": 82.1547,
+    "portals_failed": [],
     "portals_ok": [
       "igrsup",
+      "bhulekh",
       "cppp_gem",
       "rera_up"
     ],
-    "scraped_at": "2026-05-29T14:05:52.924154Z"
+    "scraped_at": "2026-06-01T09:58:35.328469Z"
   },
   "status": "OK",
-  "zone_label": "Zone 4 — Buy with Verification"
+  "zone_label": "Zone 5 — Strong Buy"
 }

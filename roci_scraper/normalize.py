@@ -53,13 +53,13 @@ def normalize_portal_payloads(raw: Dict[str, Any], ref_dir: Path) -> Dict[str, A
 
     out['sigma_district'] = max(float(out.get('sigma_district', 1.0)), 1.0)
 
-    # CLU mapping
-    if 'bhoomi_prakar' in out and 'clu_current' not in out:
-        out['clu_current'] = _lookup_mapping(str(out.get('bhoomi_prakar', '')), ref_dir)
+    # CLU mapping — bhoomi_prakar from Bhulekh always overrides the default
+    if out.get('bhoomi_prakar'):
+        out['clu_current'] = _lookup_mapping(str(out['bhoomi_prakar']), ref_dir)
     out['clu_current'] = safe_int(out.get('clu_current'), 2)
     out['clu_permitted'] = safe_int(out.get('clu_permitted'), 7)
     out['mutation_status'] = normalize_whitespace(str(out.get('mutation_status', 'CLEAR'))).upper() or 'CLEAR'
-    if out['mutation_status'] not in {'CLEAR', 'PENDING', 'NOT_INIT', 'DISPUTED', 'UNKNOWN'}:
+    if out['mutation_status'] not in {'CLEAR', 'PENDING', 'NOT_INIT', 'TAX_DUES', 'DISPUTED', 'UNKNOWN'}:
         out['mutation_status'] = 'UNKNOWN'
 
     # Normalize projects

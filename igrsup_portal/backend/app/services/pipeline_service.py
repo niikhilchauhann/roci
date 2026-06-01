@@ -106,10 +106,17 @@ async def stream_pipeline(
             stage_num = idx + 1
             portal = adapter.portal_name
 
-            if portal == "bhulekh" and not resolved_gatta:
-                resolved_gatta = raw.get("khasra_number") or None
+            # Skip Bhunaksha if gatta number was already provided
+            if portal == "bhunaksha" and resolved_gatta:
+                yield _event("stage", stage=stage_num, name="BHUNAKSHA", portal=portal, message="Skipped — gatta number already provided")
+                yield _event("stage_done", stage=stage_num, name="BHUNAKSHA", portal=portal, status="SKIPPED", elapsed_s=0.0)
+                continue
 
-            scrape_gatta = resolved_gatta if portal == "bhulekh" else gatta_number
+            # After Bhunaksha runs, pick up the gatta number it found
+            if portal == "bhulekh" and not resolved_gatta:
+                resolved_gatta = raw.get("khasra_number") or raw.get("gatta_number") or None
+
+            scrape_gatta = resolved_gatta if portal == "bhulekh" else None
             yield _event(
                 "stage",
                 stage=stage_num,
@@ -144,6 +151,19 @@ async def stream_pipeline(
                         elapsed_s=elapsed,
                         fields=list(result.data.keys()),
                     )
+                elif portal == "cppp_gem" and result.status == "EMPTY_PAGE":
+                    # CAPTCHA failure — show as failed in UI but merge empty
+                    # infra_projects so pipeline can still compute a score
+                    portals_failed.append(portal)
+                    raw.setdefault("infra_projects", [])
+                    yield _event(
+                        "stage_failed",
+                        stage=stage_num,
+                        name=portal.upper(),
+                        portal=portal,
+                        error="CAPTCHA failed — infra score will be 0",
+                        elapsed_s=elapsed,
+                    )
                 else:
                     portals_failed.append(portal)
                     yield _event(
@@ -151,7 +171,7 @@ async def stream_pipeline(
                         stage=stage_num,
                         name=portal.upper(),
                         portal=portal,
-                        status="FAILED",
+                        error=result.note or None,
                         elapsed_s=elapsed,
                     )
             except Exception as exc:

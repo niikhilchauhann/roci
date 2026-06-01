@@ -43,44 +43,72 @@ def _get_dddd_ocr():
     return _dddd_ocr
 
 
-def _median_filtered_png(img_bytes: bytes) -> bytes:
-    """Grayscale + median filter to suppress CPPP dot noise, returned as PNG bytes."""
+def _preprocess_captcha(img_bytes: bytes) -> list:
+    """Return multiple preprocessed variants of the CAPTCHA image for OCR."""
     try:
-        from PIL import Image, ImageFilter, ImageFile
+        from PIL import Image, ImageFilter, ImageOps, ImageEnhance, ImageFile
         import io
         ImageFile.LOAD_TRUNCATED_IMAGES = True
         img = Image.open(io.BytesIO(img_bytes)).convert('L')
-        img = img.filter(ImageFilter.MedianFilter(size=3))
-        buf = io.BytesIO()
-        img.save(buf, format='PNG')
-        return buf.getvalue()
+
+        variants = []
+
+        # 1. Median filter (suppress dot noise)
+        v1 = img.filter(ImageFilter.MedianFilter(size=3))
+        buf = io.BytesIO(); v1.save(buf, format='PNG'); variants.append(buf.getvalue())
+
+        # 2. Threshold (binarise) — removes background noise
+        v2 = img.point(lambda x: 0 if x < 140 else 255)
+        buf = io.BytesIO(); v2.save(buf, format='PNG'); variants.append(buf.getvalue())
+
+        # 3. Inverted + threshold — works when text is light on dark background
+        v3 = ImageOps.invert(img).point(lambda x: 0 if x < 140 else 255)
+        buf = io.BytesIO(); v3.save(buf, format='PNG'); variants.append(buf.getvalue())
+
+        # 4. Contrast boost + median
+        v4 = ImageEnhance.Contrast(img).enhance(3.0).filter(ImageFilter.MedianFilter(size=3))
+        buf = io.BytesIO(); v4.save(buf, format='PNG'); variants.append(buf.getvalue())
+
+        return variants
     except Exception:
-        return img_bytes
+        return [img_bytes]
 
 
 def _solve_captcha(img_bytes: bytes) -> str:
     """
-    Solve CPPP CAPTCHA. EasyOCR is primary (case-preserving); ddddocr is fallback.
-    Returns alphanumeric string, empty string on failure.
+    Solve CPPP CAPTCHA. Tries multiple image preprocessing variants with
+    EasyOCR (primary) and ddddocr (fallback) for each variant.
+    Returns alphanumeric string, empty string on complete failure.
     """
-    filtered = _median_filtered_png(img_bytes)
+    variants = _preprocess_captcha(img_bytes)
 
-    # Primary: EasyOCR (handles case correctly, ~90% accuracy on CPPP CAPTCHAs)
+    for filtered in variants:
+        # Primary: EasyOCR (handles case correctly)
+        try:
+            reader = _get_easyocr()
+            parts = reader.readtext(filtered, detail=0, allowlist=_OCR_ALLOWLIST)
+            text = ''.join(parts).strip().replace(' ', '')
+            if 4 <= len(text) <= 8 and text.isalnum():
+                return text
+        except Exception:
+            pass
+
+        # Fallback: ddddocr
+        try:
+            ocr = _get_dddd_ocr()
+            text = ocr.classification(filtered).strip().replace(' ', '')
+            if 4 <= len(text) <= 8 and text.isalnum():
+                return text.upper()
+        except Exception:
+            pass
+
+    # Last resort: EasyOCR on original
     try:
         reader = _get_easyocr()
-        parts = reader.readtext(filtered, detail=0, allowlist=_OCR_ALLOWLIST)
+        parts = reader.readtext(img_bytes, detail=0, allowlist=_OCR_ALLOWLIST)
         text = ''.join(parts).strip().replace(' ', '')
         if 4 <= len(text) <= 8 and text.isalnum():
             return text
-    except Exception:
-        pass
-
-    # Fallback: ddddocr (loses case, but better than nothing)
-    try:
-        ocr = _get_dddd_ocr()
-        text = ocr.classification(filtered).strip().replace(' ', '')
-        if 4 <= len(text) <= 8 and text.isalnum():
-            return text.upper()  # uppercase is safer guess when case is unknown
     except Exception:
         pass
 
@@ -469,7 +497,7 @@ class CpppGemAdapter(PortalAdapter):
             result = PortalResult(
                 self.portal_name, 'EMPTY_PAGE', self.url, query,
                 {'infra_projects': []},
-                note='No tenders returned from CPPP or GeM',
+                note='No tenders returned from CPPP or GeM (CAPTCHA may have failed)',
             )
             self._save(output_dir, result)
             return result

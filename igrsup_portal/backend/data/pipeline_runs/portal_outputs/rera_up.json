@@ -24,23 +24,48 @@
         "village": "Sarethi"
       },
       {
-        "cert_url": "https://uprera.azurewebsites.net/ViewDocument?Param=669621058022.pdf",
+        "cert_url": "https://uprera.azurewebsites.net/ViewDocument?Param=704251221241.pdf",
         "detail": {
-          "Proposed Completion Date": "30-09-2027"
+          "District/State": "Ayodhya/Uttar Pradesh",
+          "Proposed Completion Date": "30-06-2028",
+          "Tehsil": "Sadar(Faizabad)",
+          "Village/Locality/Sector": "Ayodhya"
         },
-        "distance_km": 2.321,
-        "name": "The Sarayu 3",
+        "distance_km": 1.065,
+        "name": "The Sarayu 4",
         "project_type": "Residential",
         "promoter": "HOABL Realtech Private Limited",
-        "proposed_completion": "30-09-2027",
-        "reg_date": "9/07/2024",
-        "reg_number": "UPRERAPRJ77448",
+        "proposed_completion": "30-06-2028",
+        "reg_date": "8/10/2024",
+        "reg_number": "UPRERAPRJ39731",
         "scale_weight": 0.8,
         "stage_multiplier": 0.5,
         "status_text": "registered",
-        "tehsil": "",
+        "tehsil": "Sadar(Faizabad)",
         "units": null,
-        "village": ""
+        "village": "Ayodhya"
+      },
+      {
+        "cert_url": "https://uprera.azurewebsites.net/ViewDocument?Param=606941373052.pdf",
+        "detail": {
+          "District/State": "Ayodhya/Uttar Pradesh",
+          "Proposed Completion Date": "30-06-2028",
+          "Tehsil": "Sadar(Faizabad)",
+          "Village/Locality/Sector": "Ayodhya"
+        },
+        "distance_km": 1.065,
+        "name": "The Sarayu 5 (The Sarayu Phase 2C)",
+        "project_type": "Residential",
+        "promoter": "HOABL Realtech Private Limited",
+        "proposed_completion": "30-06-2028",
+        "reg_date": "0/03/2025",
+        "reg_number": "UPRERAPRJ37887",
+        "scale_weight": 0.8,
+        "stage_multiplier": 0.5,
+        "status_text": "registered",
+        "tehsil": "Sadar(Faizabad)",
+        "units": null,
+        "village": "Ayodhya"
       },
       {
         "cert_url": "https://uprera.azurewebsites.net/ViewDocument?Param=758541350199.pdf",
@@ -71,8 +96,8 @@
   "portal": "rera_up",
   "query": {
     "district": "Ayodhya",
-    "lat": 26.7783,
-    "lng": 82.2029
+    "lat": 26.7397,
+    "lng": 82.1547
   },
   "status": "OK",
   "url": "https://uprera.azurewebsites.net/View_projects.aspx"
