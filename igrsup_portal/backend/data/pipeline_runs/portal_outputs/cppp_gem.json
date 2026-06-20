@@ -1,48 +1,14 @@
 {
   "data": {
-    "infra_projects": [
-      {
-        "closing_date": "09-Jun-2026 04:00 PM",
-        "distance_km": 0.0,
-        "is_infra_org": false,
-        "opening_date": "10-Jun-2026 04:30 PM",
-        "org": "Archaeological Survey of India",
-        "published_date": "20-May-2026 06:00 PM",
-        "ref_no": "5-4/22/2026-27-FZD-C",
-        "source": "cppp",
-        "stage": "open",
-        "stage_multiplier": 0.4,
-        "tender_id": "2026_ASI_909467_1",
-        "title": "Minor Civil and Electric work (Conservation of Ancient Monuments) to Annual maintenance of Gulabbari and other centrally protected monuments under jurisdiction of sub-circle Ayodhya",
-        "type": "unknown",
-        "type_weight": 0.4
-      },
-      {
-        "closing_date": "05-Jun-2026 11:00 AM",
-        "distance_km": 0.0,
-        "is_infra_org": false,
-        "opening_date": "06-Jun-2026 03:00 PM",
-        "org": "Ministry of Road Transport and Highways",
-        "published_date": "22-Apr-2026 03:00 PM",
-        "ref_no": "1620/923 Yata-NH Circle/2026 Dated. 21.04.2026",
-        "source": "cppp",
-        "stage": "open",
-        "stage_multiplier": 0.4,
-        "tender_id": "2026_MoRTH_906159_1",
-        "title": "RFP for the work of Widening to 4L of section connecting Naka Chauraha (Ayodhya) to Maharishi Valmiki International Airport Ayodhya Dham from Km.140.350 to Km.142.000 on NH 330 under EPC Mode in the state of Uttar Pradesh.",
-        "type": "highway",
-        "type_weight": 1.0
-      }
-    ],
-    "total_tenders": 2
+    "infra_projects": []
   },
-  "note": "",
+  "note": "No tenders returned from CPPP or GeM (CAPTCHA may have failed)",
   "portal": "cppp_gem",
   "query": {
     "district": "Ayodhya",
-    "lat": 26.7397,
-    "lng": 82.1547
+    "lat": 26.720138888888886,
+    "lng": 82.26755555555556
   },
-  "status": "OK",
+  "status": "EMPTY_PAGE",
   "url": "https://eprocure.gov.in/eprocure/app"
 }

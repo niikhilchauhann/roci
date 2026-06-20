@@ -21,8 +21,8 @@
   "query": {
     "district": "Ayodhya",
     "gatta_number": null,
-    "lat": 26.7397,
-    "lng": 82.1547
+    "lat": 26.720138888888886,
+    "lng": 82.26755555555556
   },
   "status": "OK",
   "url": "https://igrsup.gov.in"

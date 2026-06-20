@@ -38,6 +38,7 @@ async def stream_pipeline(
     headless: bool = True,
     fixture_path: Path | None = None,
     fixture_only: bool = False,
+    village: Dict[str, Any] | None = None,
 ) -> AsyncGenerator[str, None]:
     loop = asyncio.get_event_loop()
     import os, importlib
@@ -135,6 +136,7 @@ async def stream_pipeline(
                         gatta_number=g,
                         output_dir=portal_out,
                         headless=headless,
+                        **({"village": village} if a.portal_name in ("bhunaksha", "bhulekh") else {}),
                     ),
                 )
                 elapsed = round(time.monotonic() - t0, 1)
@@ -204,6 +206,13 @@ async def stream_pipeline(
             "portals_ok": portals_ok,
             "portals_failed": portals_failed,
             "gatta_number": resolved_gatta,
+            "village": (village or {}).get("name"),
+            # Persist the rest of the selected village so the report/circle-rate
+            # still work when bhunaksha is skipped (gatta provided) or fails.
+            "village_hi": (village or {}).get("name_hi"),
+            "village_code": (village or {}).get("village_code"),
+            "giscode": (village or {}).get("giscode"),
+            "tehsil_code": (village or {}).get("tehsil_code"),
             "lat": lat,
             "lng": lng,
             "area_sqft": area_sqft,
